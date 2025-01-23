@@ -1,0 +1,1 @@
+../../submodule/aws-infra-policy-as-code-with-terraform/policy-as-code/OPA/policy/common.utils.rego

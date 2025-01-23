@@ -1,0 +1,39 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Clone avmpolicytester
+        run: |
+          git clone https://github.com/lonegunmanb/avmpolicytester.git /tmp/avmpolicytester
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: /tmp/avmpolicytester/go.mod
+
+      - name: Install conftest
+        run: CGO_ENABLED=0 go install github.com/open-policy-agent/conftest@latest
+
+      - name: Run tests
+        run: |
+          export POLICY_DIR="$(pwd)/policy"
+          export UTILS_REGO="$POLICY_DIR/policy/common/common.utils.rego"
+          cd /tmp/avmpolicytester
+          go test -v github.com/lonegunmanb/avmpolicytester/...
