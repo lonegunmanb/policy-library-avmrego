@@ -34,6 +34,6 @@ jobs:
       - name: Run tests
         run: |
           export POLICY_DIR="$(pwd)/policy"
-          export UTILS_REGO="$(pwd)/policy/common/common.utils.rego"
+          export UTILS_REGO="$(pwd)/policy/common"
           cd /tmp/avmpolicytester
           go test -v github.com/lonegunmanb/avmpolicytester/...
