@@ -13,7 +13,7 @@ deny[reason] {
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
     resource.type == "azapi_resource"
-    data.utils.azapi_resource_type_equals(resource.change.after, "Microsoft.Network/applicationGateways")
+    regex.match(`^Microsoft.Network/applicationGateways@`, resource.change.after.type)
     data.utils.is_create_or_update(resource.change.actions)
     not valid_azapi_sku(resource)
 
