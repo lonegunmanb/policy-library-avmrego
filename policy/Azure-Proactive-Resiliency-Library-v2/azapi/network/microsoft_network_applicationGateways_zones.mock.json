@@ -1,0 +1,104 @@
+{
+  "mock": {
+    "3zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "zones": [
+                  "1",
+                  "2",
+                  "3"
+                ]
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    },
+    "2zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "zones": [
+                  "1",
+                  "2"
+                ]
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_enough_zones":{
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "zones": [
+                  "1"
+                ]
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
