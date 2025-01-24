@@ -1,0 +1,91 @@
+{
+  "mock": {
+    "Standard_v2": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "capacity": 2,
+                    "name": "Standard_v2",
+                    "tier": "Standard_v2"
+                  }
+                }
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    },
+    "WAF_v2": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "capacity": 2,
+                    "name": "WAF_v2",
+                    "tier": "WAF_v2"
+                  }
+                }
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_basic":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.gw",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "gw",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "capacity": 2,
+                    "name": "Basic",
+                    "tier": "Basic"
+                  }
+                }
+              },
+              "name": "example-appgateway",
+              "type": "Microsoft.Network/applicationGateways@2024-03-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
