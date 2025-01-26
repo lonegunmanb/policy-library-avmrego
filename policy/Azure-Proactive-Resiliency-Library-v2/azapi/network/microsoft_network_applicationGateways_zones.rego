@@ -10,7 +10,7 @@ deny[reason] {
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
     resource.type == "azapi_resource"
-    regex.match(`^Microsoft.Network/applicationGateways@`, resource.change.after.type)
+    data.utils.is_azure_type(resource.change.after, "Microsoft.Network/applicationGateways")
     data.utils.is_create_or_update(resource.change.actions)
     not valid_zones(resource.change.after)
 
