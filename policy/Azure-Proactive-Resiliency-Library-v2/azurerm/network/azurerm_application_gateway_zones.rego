@@ -5,7 +5,7 @@ valid_zones(after) {
     count(after.zones) >= 2
 }
 
-deny[reason] {
+deny_deploy_application_gateway_in_a_zone_redundant_configuration[reason] {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

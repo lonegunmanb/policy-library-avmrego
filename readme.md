@@ -51,6 +51,42 @@ Any keys other than `valid` and `invalid` would be treated as a single case, any
 
 To contribute a new policy, you **MUST** provide at least one valid case.
 
+## Use unique rule name as `deny` function name
+
+Please do:
+
+```rego
+deny_migrate_to_application_gateway_v2[reason] {
+    tfplan := data.utils.tfplan(input)
+    resource := tfplan.resource_changes[_]
+    resource.mode == "managed"
+    resource.type == "azapi_resource"
+    data.utils.is_create_or_update(resource.change.actions)
+    data.utils.is_azure_type(resource.change.after, "Microsoft.Network/applicationGateways")
+    not valid_sku(resource)
+
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have 'body.properties.sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
+}
+```
+
+Please **DO NOT**:
+
+```rego
+deny[reason] {
+    tfplan := data.utils.tfplan(input)
+    resource := tfplan.resource_changes[_]
+    resource.mode == "managed"
+    resource.type == "azapi_resource"
+    data.utils.is_create_or_update(resource.change.actions)
+    data.utils.is_azure_type(resource.change.after, "Microsoft.Network/applicationGateways")
+    not valid_sku(resource)
+
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have 'body.properties.sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
+}
+```
+
+These rule names could be used in [`exceptions`](https://www.conftest.dev/exceptions/) so users could skip the check for specific resources.
+
 ## Do not use `input` directly in your policy
 
 According to the [HashiCorp's OPA policies document](https://github.com/aws-samples/aws-infra-policy-as-code-with-terraform):

@@ -8,7 +8,7 @@ valid_sku(resource) {
     resource.change.after.body.properties.sku.name == "WAF_v2"
 }
 
-deny[reason] {
+deny_migrate_to_application_gateway_v2[reason] {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
