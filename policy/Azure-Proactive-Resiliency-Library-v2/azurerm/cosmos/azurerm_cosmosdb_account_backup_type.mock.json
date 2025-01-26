@@ -1,0 +1,73 @@
+{
+  "mock": {
+    "continuous": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.db",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "name": "db",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "backup": [
+                {
+                  "tier": "Continuous7Days",
+                  "type": "Continuous"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_Periodic": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.db",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "name": "db",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "backup": [
+                {
+                  "type": "Periodic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_backup": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.db",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "name": "db",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+
+            }
+          }
+        }
+      ]
+    }
+  }
+}
