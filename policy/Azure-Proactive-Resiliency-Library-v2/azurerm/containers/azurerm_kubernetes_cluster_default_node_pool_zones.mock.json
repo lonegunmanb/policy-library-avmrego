@@ -1,0 +1,101 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "zones": [
+                    "1",
+                    "2"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_zones": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_zones": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "zones": [
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_only_one_zone": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "zones": [
+                    "1"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

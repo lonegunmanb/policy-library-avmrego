@@ -1,0 +1,115 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "agentPoolProfiles": [
+                    {
+                      "availabilityZones": [
+                        "2",
+                        "1"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_availabilityZones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "agentPoolProfiles": [
+                    {}
+                  ]
+                }
+              },
+              "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_availabilityZones":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "agentPoolProfiles": [
+                    {
+                      "availabilityZones": []
+                    }
+                  ]
+                }
+              },
+              "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_only_one_availabilityZone":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "agentPoolProfiles": [
+                    {
+                      "availabilityZones": [
+                        "1"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
