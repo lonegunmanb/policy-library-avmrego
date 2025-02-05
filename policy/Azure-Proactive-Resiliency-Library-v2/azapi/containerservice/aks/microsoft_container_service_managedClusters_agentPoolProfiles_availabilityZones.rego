@@ -5,7 +5,7 @@ valid_zones(after) {
     count(pool.availabilityZones) >= 2
 }
 
-deny_configure_default_node_pool_zones[reason] {
+deny_configure_aks_default_node_pool_zones[reason] {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

@@ -2,6 +2,57 @@
 
 This repository contains some [Rego](https://www.openpolicyagent.org/) policy files designed for Azure, both AzureRM and AzAPI. The policy files are structured as follows:
 
+## How to use it
+
+To use these policies, you can use the [Conftest](https://www.conftest.dev/) tool. You can use the following command to run the policies against your Terraform plan:
+
+```bash
+conftest test --all-namespaces -p <path-to-policies>/policy <path-to-tfplan>
+```
+
+## Supported Policies
+
+### [Azure-Proactive-Resiliency-Library-v2](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/)
+
+* `Microsoft.ContainerService/managedClusters`
+[`configure_aks_default_node_pool_zones`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/ContainerService/managedClusters/#deploy-aks-cluster-across-availability-zones)
+* `Microsoft.DocumentDB/databaseAccounts`
+[`configure_cosmosdb_account_continuous_backup_mode`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode)
+* `Microsoft.Network/applicationGateways`
+[`migrate_to_application_gateway_v2`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2)
+[`deploy_application_gateway_in_a_zone_redundant_configuration`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#deploy-application-gateway-in-a-zone-redundant-configuration)
+* `Microsoft.Network/loadBalancers`
+[`use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads)
+[`use_resilient_load_lalancer_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-standard-load-balancer-sku)
+
+## Apply(skip) policies
+
+To apply a subset of policies, you can specify the policy folders you want to apply, e.g.:
+
+```Bash
+conftest test --all-namespaces -p <path-to-policies>/policy/Azure-Proactive-Resiliency-Library-v2 -p <path-to-policies>/policy/common <path-to-tfplan>
+```
+
+This will only apply the policies under `Azure-Proactive-Resiliency-Library-v2` and `common` folders. Please note that `policy/common` is required.
+
+To skip a subset of policies, you can create an exception rego file, e.g.:
+
+```rego
+exception[rules] {
+  rules = ["use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer"]
+}
+```
+
+Save it to `exception.rego`, then you can apply the exception file with the policies:
+
+```Bash
+conftest test --all-namespaces -p exception.rego -p <path-to-policies>/policy <path-to-tfplan>
+```
+
+## Contribution
+
+All contribution are welcome, please follow the structure below:
+
 ```text
 .
 ├── common
