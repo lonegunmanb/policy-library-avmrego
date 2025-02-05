@@ -1,0 +1,85 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "backupPolicy": {
+                    "continuousModeProperties": {
+                      "tier": "Continuous7Days"
+                    },
+                    "type": "Continuous"
+                  }
+                }
+              },
+              "type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_backup_policy": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                }
+              },
+              "type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_periodic_backup_policy": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "backupPolicy": {
+                    "type": "Periodic"
+                  }
+                }
+              },
+              "type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
