@@ -1,0 +1,76 @@
+{
+  "mock": {
+    "standard": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res-0",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Standard"
+                }
+              },
+              "type": "Microsoft.Network/loadBalancers@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "gateway":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res-0",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Gateway"
+                }
+              },
+              "type": "Microsoft.Network/loadBalancers@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_basic":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res-0",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Basic"
+                }
+              },
+              "type": "Microsoft.Network/loadBalancers@2024-05-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
