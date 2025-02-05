@@ -1,0 +1,94 @@
+{
+  "mock": {
+    "no_outboundRules": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                }
+              },
+              "type": "Microsoft.Network/loadBalancers@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "empty_outboundRules": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "outboundRules": []
+                }
+              },
+              "type": "Microsoft.Network/loadBalancers@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_outboundRules": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "outboundRules": [
+                    {
+                      "id": "/subscriptions/xxxxx/resourceGroups/LoadBalancerRG/providers/Microsoft.Network/loadBalancers/TestLoadBalancer/outboundRules/OutboundRule",
+                      "name": "OutboundRule",
+                      "properties": {
+                        "allocatedOutboundPorts": 1024,
+                        "backendAddressPool": {
+                          "id": "/subscriptions/xxxxx/resourceGroups/LoadBalancerRG/providers/Microsoft.Network/loadBalancers/TestLoadBalancer/backendAddressPools/example"
+                        },
+                        "enableTcpReset": false,
+                        "frontendIPConfigurations": [
+                          {
+                            "id": "/subscriptions/xxxxx/resourceGroups/LoadBalancerRG/providers/Microsoft.Network/loadBalancers/TestLoadBalancer/frontendIPConfigurations/PublicIPAddress"
+                          }
+                        ],
+                        "idleTimeoutInMinutes": 4,
+                        "protocol": "Tcp"
+                      }
+                    }
+                  ]
+                }
+              },
+              "type": "Microsoft.Network/loadBalancers@2024-05-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
