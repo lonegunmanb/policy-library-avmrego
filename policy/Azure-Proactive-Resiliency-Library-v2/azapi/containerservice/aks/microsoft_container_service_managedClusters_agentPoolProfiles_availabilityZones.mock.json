@@ -55,7 +55,7 @@
         }
       ]
     },
-    "invalid_empty_availabilityZones":  {
+    "invalid_empty_availabilityZones": {
       "resource_changes": [
         {
           "address": "azapi_resource.res",
@@ -82,7 +82,7 @@
         }
       ]
     },
-    "invalid_only_one_availabilityZone":  {
+    "invalid_only_one_availabilityZone": {
       "resource_changes": [
         {
           "address": "azapi_resource.res",

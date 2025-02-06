@@ -56,7 +56,7 @@
         ]
       }
     },
-    "invalid_Basic":  {
+    "invalid_Basic": {
       "resource_changes": [
         {
           "address": "azurerm_application_gateway.network",

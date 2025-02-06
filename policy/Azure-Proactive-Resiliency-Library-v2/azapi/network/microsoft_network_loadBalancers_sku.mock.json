@@ -24,7 +24,7 @@
         }
       ]
     },
-    "gateway":  {
+    "gateway": {
       "resource_changes": [
         {
           "address": "azapi_resource.res-0",
@@ -48,7 +48,7 @@
         }
       ]
     },
-    "invalid_basic":  {
+    "invalid_basic": {
       "resource_changes": [
         {
           "address": "azapi_resource.res-0",

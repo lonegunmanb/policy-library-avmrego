@@ -58,7 +58,7 @@
         }
       ]
     },
-    "invalid_basic":  {
+    "invalid_basic": {
       "resource_changes": [
         {
           "address": "azapi_resource.gw",

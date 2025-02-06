@@ -75,7 +75,7 @@
         }
       ]
     },
-    "invalid_no_enough_zones":{
+    "invalid_no_enough_zones": {
       "resource_changes": [
         {
           "address": "azapi_resource.gw",

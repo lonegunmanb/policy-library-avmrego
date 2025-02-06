@@ -59,7 +59,9 @@
             "before": null,
             "after": {
               "resource_group_name": "example-resources",
-              "zones": [1]
+              "zones": [
+                1
+              ]
             }
           }
         }

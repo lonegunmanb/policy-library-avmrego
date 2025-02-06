@@ -1,11 +1,11 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_Network_loadBalancers
 
-valid_sku(after) {
+valid_sku(after) if {
     after.body.sku.name
     after.body.sku.name != "Basic"
 }
 
-deny_use_resilient_load_lalancer_sku[reason] {
+deny_use_resilient_load_lalancer_sku[reason] if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

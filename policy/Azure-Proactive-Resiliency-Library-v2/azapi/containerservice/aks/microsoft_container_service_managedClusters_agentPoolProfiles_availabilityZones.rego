@@ -1,11 +1,11 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_ContainerService_managedClusters
 
-valid_zones(after) {
+valid_zones(after) if {
     pool := after.body.properties.agentPoolProfiles[_]
     count(pool.availabilityZones) >= 2
 }
 
-deny_configure_aks_default_node_pool_zones[reason] {
+deny_configure_aks_default_node_pool_zones[reason] if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

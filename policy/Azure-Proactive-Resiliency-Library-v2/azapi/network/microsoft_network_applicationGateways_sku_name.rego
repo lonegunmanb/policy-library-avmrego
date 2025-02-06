@@ -1,14 +1,14 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_Network_applicationGateways
 
-valid_sku(resource) {
+valid_sku(resource) if {
     resource.change.after.body.properties.sku.name == "Standard_v2"
 }
 
-valid_sku(resource) {
+valid_sku(resource) if {
     resource.change.after.body.properties.sku.name == "WAF_v2"
 }
 
-deny_migrate_to_application_gateway_v2[reason] {
+deny_migrate_to_application_gateway_v2[reason] if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
