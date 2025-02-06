@@ -1,7 +1,7 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_DBforMySQL_flexibleServers
 
 valid_high_availability_mode(after) {
-    pool := after.body.properties.highAvailability.mode == "ZoneRedundant"
+    after.body.properties.highAvailability.mode == "ZoneRedundant"
 }
 
 deny_mysql_flexible_server_high_availability_zone_redundant[reason] {
