@@ -1,0 +1,78 @@
+{
+  "mock": {
+    "default_zone_redundant": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "highAvailability": {
+                    "mode": "ZoneRedundant"
+                  }
+                }
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_same_zone": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "highAvailability": {
+                    "mode": "SameZone"
+                  }
+                }
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_highAvailability": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {}
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
