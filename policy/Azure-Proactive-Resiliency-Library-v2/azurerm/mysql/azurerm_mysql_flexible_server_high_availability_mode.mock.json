@@ -1,0 +1,87 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "high_availability": [
+                {
+                  "mode": "ZoneRedundant"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_same_zone": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "high_availability": [
+                {
+                  "mode": "SameZone"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_high_availability": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_high_availability": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "high_availability": []
+            }
+          }
+        }
+      ]
+    }
+  }
+}
