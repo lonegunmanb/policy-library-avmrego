@@ -24,6 +24,8 @@ conftest test --all-namespaces -p <path-to-policies>/policy <path-to-tfplan>
 * `Microsoft.Network/loadBalancers`
 [`use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads)
 [`use_resilient_load_lalancer_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-standard-load-balancer-sku)
+* `Microsoft.DBforMySQL/flexibleServers`
+[`mysql_flexible_server_high_availability_zone_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#enable-ha-with-zone-redundancy)
 
 ## Apply(skip) policies
 
@@ -145,3 +147,7 @@ According to the [HashiCorp's OPA policies document](https://github.com/aws-samp
 >The run data contains information like workspace details and the organization name. To access the properties from the Terraform plan data in your policies, use `input.plan`. To access properties from the Terraform run, use `input.run`.
 
 Unlike Terraform plan file, the actual plan on HCP Terraform are wrapped in `input.plan`, so you **MUST** use `tfplan := data.utils.tfplan(input)` to get the actual plan object.
+
+## Don't forget to update the README
+
+Please update the README file to include the new policy in [#Supported Policies](#supported-policies) section.
