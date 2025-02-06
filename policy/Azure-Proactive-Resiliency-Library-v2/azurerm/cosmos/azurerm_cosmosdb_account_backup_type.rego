@@ -1,7 +1,7 @@
 package Azure_Proactive_Resiliency_Library_v2.azurerm_cosmosdb_account
 
 valid_cosmosdb_account_backup_policy_type(after) {
-    after.backup.type == "Continuous"
+    after.backup[_].type == "Continuous"
 }
 
 deny_configure_cosmosdb_account_continuous_backup_mode[reason] {
