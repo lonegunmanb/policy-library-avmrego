@@ -145,7 +145,3 @@ According to the [HashiCorp's OPA policies document](https://github.com/aws-samp
 >The run data contains information like workspace details and the organization name. To access the properties from the Terraform plan data in your policies, use `input.plan`. To access properties from the Terraform run, use `input.run`.
 
 Unlike Terraform plan file, the actual plan on HCP Terraform are wrapped in `input.plan`, so you **MUST** use `tfplan := data.utils.tfplan(input)` to get the actual plan object.
-
-## Special thanks
-
-This repository uses [a common utils library provided by `aws-infra-policy-as-code-with-terraform`](https://github.com/aws-samples/aws-infra-policy-as-code-with-terraform), thanks a lot!
