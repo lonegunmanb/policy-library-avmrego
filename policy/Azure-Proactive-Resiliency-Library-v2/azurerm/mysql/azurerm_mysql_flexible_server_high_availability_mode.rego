@@ -4,7 +4,7 @@ valid_high_availability_mode(resource) {
     resource.change.after.high_availability[_].mode == "ZoneRedundant"
 }
 
-deny_mysql_flexible_server_high_availability_zone_redundant[reason] {
+deny_mysql_flexible_server_high_availability_mode_zone_redundant[reason] {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
