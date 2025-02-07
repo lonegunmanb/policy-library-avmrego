@@ -1,11 +1,13 @@
 package Azure_Proactive_Resiliency_Library_v2.azurerm_kubernetes_cluster
 
-valid_zones(after) {
+import rego.v1
+
+valid_zones(after) if {
     pool := after.default_node_pool[_]
     count(pool.zones) >= 2
 }
 
-deny_configure_aks_default_node_pool_zones[reason] {
+deny_configure_aks_default_node_pool_zones contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

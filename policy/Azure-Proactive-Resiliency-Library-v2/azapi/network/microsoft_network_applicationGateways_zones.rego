@@ -1,11 +1,13 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_Network_applicationGateways
 
-valid_zones(after) {
+import rego.v1
+
+valid_zones(after) if {
     after.body.zones
     count(after.body.zones) >= 2
 }
 
-deny_deploy_application_gateway_in_a_zone_redundant_configuration[reason] {
+deny_deploy_application_gateway_in_a_zone_redundant_configuration contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

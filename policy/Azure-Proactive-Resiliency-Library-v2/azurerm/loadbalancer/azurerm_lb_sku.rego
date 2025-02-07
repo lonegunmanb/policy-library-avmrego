@@ -1,10 +1,12 @@
 package Azure_Proactive_Resiliency_Library_v2.azurerm_lb
 
-valid_sku(resource) {
+import rego.v1
+
+valid_sku(resource) if {
     resource.change.after.sku != "Basic"
 }
 
-deny_use_resilient_load_lalancer_sku[reason] {
+deny_use_resilient_load_lalancer_sku contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

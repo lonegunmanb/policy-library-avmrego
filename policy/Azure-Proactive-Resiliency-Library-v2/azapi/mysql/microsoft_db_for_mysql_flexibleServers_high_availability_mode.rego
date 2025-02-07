@@ -1,10 +1,12 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_DBforMySQL_flexibleServers
 
-valid_high_availability_mode(after) {
+import rego.v1
+
+valid_high_availability_mode(after) if {
     after.body.properties.highAvailability.mode == "ZoneRedundant"
 }
 
-deny_mysql_flexible_server_high_availability_zone_redundant[reason] {
+deny_mysql_flexible_server_high_availability_zone_redundant contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

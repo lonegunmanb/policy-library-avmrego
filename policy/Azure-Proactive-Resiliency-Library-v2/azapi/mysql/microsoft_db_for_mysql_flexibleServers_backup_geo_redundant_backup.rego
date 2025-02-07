@@ -1,10 +1,12 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_DBforMySQL_flexibleServers
 
-valid_geo_redundant_backup_enabled(after) {
+import rego.v1
+
+valid_geo_redundant_backup_enabled(after) if {
     after.body.properties.backup.geoRedundantBackup == "Enabled"
 }
 
-deny_mysql_flexible_server_geo_redundant_backup_enabled[reason] {
+deny_mysql_flexible_server_geo_redundant_backup_enabled contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"

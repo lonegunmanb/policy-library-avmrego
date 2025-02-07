@@ -1,6 +1,8 @@
 package Azure_Proactive_Resiliency_Library_v2.azurerm_lb
 
-deny_use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer[reason] {
+import rego.v1
+
+deny_use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
