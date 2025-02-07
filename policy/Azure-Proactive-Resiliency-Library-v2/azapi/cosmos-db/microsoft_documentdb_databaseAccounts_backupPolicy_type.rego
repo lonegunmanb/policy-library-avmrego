@@ -1,10 +1,12 @@
 package Azure_Proactive_Resiliency_Library_v2.Microsoft_Network_databaseAccounts
 
-valid_cosmosdb_account_backup_policy_type(after) {
+import rego.v1
+
+valid_cosmosdb_account_backup_policy_type(after) if {
     after.body.properties.backupPolicy.type == "Continuous"
 }
 
-deny_configure_cosmosdb_account_continuous_backup_mode[reason] {
+deny_configure_cosmosdb_account_continuous_backup_mode contains reason if {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
