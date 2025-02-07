@@ -1,5 +1,7 @@
 package Azure_Proactive_Resiliency_Library_v2.azurerm_cosmosdb_account
 
+import rego.v1
+
 valid_cosmosdb_account_backup_policy_type(after) if {
     after.backup[_].type == "Continuous"
 }
