@@ -1,0 +1,59 @@
+{
+  "mock": {
+    "valid_enabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "geo_redundant_backup_enabled": true
+            }
+          }
+        }
+      ]
+    },
+    "invalid_disabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "geo_redundant_backup_enabled": false
+            }
+          }
+        }
+      ]
+    },
+    "invalid_not_set": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mysql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_mysql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ]
+    }
+  }
+}

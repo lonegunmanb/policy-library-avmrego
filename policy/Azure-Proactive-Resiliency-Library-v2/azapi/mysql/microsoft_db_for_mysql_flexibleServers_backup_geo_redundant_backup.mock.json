@@ -1,0 +1,103 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "backup": {
+                    "geoRedundantBackup": "Enabled"
+                  }
+                }
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_disabled": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "backup": {
+                    "geoRedundantBackup": "Disabled"
+                  }
+                }
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_defined": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "backup": {}
+                }
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_backup": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                }
+              },
+              "type": "Microsoft.DBforMySQL/flexibleServers@2024-10-01-preview"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
