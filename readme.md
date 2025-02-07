@@ -14,18 +14,19 @@ conftest test --all-namespaces -p <path-to-policies>/policy <path-to-tfplan>
 
 ### [Azure-Proactive-Resiliency-Library-v2](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/)
 
-* `Microsoft.ContainerService/managedClusters`
+#### `Microsoft.ContainerService/managedClusters`
 [`configure_aks_default_node_pool_zones`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/ContainerService/managedClusters/#deploy-aks-cluster-across-availability-zones)
-* `Microsoft.DocumentDB/databaseAccounts`
+#### `Microsoft.DocumentDB/databaseAccounts`
 [`configure_cosmosdb_account_continuous_backup_mode`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode)
-* `Microsoft.Network/applicationGateways`
+#### `Microsoft.Network/applicationGateways`
 [`migrate_to_application_gateway_v2`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2)
 [`deploy_application_gateway_in_a_zone_redundant_configuration`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#deploy-application-gateway-in-a-zone-redundant-configuration)
-* `Microsoft.Network/loadBalancers`
+#### `Microsoft.Network/loadBalancers`
 [`use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads)
 [`use_resilient_load_lalancer_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-standard-load-balancer-sku)
-* `Microsoft.DBforMySQL/flexibleServers`
+#### `Microsoft.DBforMySQL/flexibleServers`
 [`mysql_flexible_server_high_availability_zone_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#enable-ha-with-zone-redundancy)
+[`mysql_flexible_server_geo_redundant_backup_enabled`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#configure-geo-redundant-backup-storage)
 
 ## Apply(skip) policies
 

@@ -4,7 +4,7 @@ valid_geo_redundant_backup_enabled(after) {
     after.body.properties.backup.geoRedundantBackup == "Enabled"
 }
 
-deny_mysql_flexible_server_high_availability_zone_redundant[reason] {
+deny_mysql_flexible_server_geo_redundant_backup_enabled[reason] {
     tfplan := data.utils.tfplan(input)
     resource := tfplan.resource_changes[_]
     resource.mode == "managed"
