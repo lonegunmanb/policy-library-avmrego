@@ -7,15 +7,11 @@ valid_sku(resource) if {
 }
 
 valid_sku(resource) if {
-    resource.change.after.sku[_].name == "WAF_v2"
+    resource.values.sku[_].name == "WAF_v2"
 }
 
 deny_migrate_to_application_gateway_v2 contains reason if {
-    tfplan := data.utils.tfplan(input)
-    resource := tfplan.resource_changes[_]
-    resource.mode == "managed"
-    resource.type == "azurerm_application_gateway"
-    data.utils.is_create_or_update(resource.change.actions)
+    resource := data.utils.resource(input, "azurerm_application_gateway")[_]
     not valid_sku(resource)
 
     reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azurerm_application_gateway` must have 'sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
