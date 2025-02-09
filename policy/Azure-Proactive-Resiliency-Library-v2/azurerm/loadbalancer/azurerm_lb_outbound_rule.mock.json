@@ -11,7 +11,8 @@
           "change": {
             "actions": [
               "create"
-            ]
+            ],
+            "after": {}
           }
         }
       ]
