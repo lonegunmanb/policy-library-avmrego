@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2.azurerm_application_gateway
 import rego.v1
 
 valid_sku(resource) if {
-    resource.change.after.sku[_].name == "Standard_v2"
+    resource.values.sku[_].name == "Standard_v2"
 }
 
 valid_sku(resource) if {

@@ -7,7 +7,7 @@ valid_outbound_rules(resource) if {
 }
 
 valid_outbound_rules(resource) if {
-    not data.utils.exists(resource.values.body.properties.outboundRules)
+    not resource.values.body.properties.outboundRules
 }
 
 deny_use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer contains reason if {
