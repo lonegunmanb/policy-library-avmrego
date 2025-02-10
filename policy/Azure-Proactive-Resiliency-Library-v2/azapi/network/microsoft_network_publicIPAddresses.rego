@@ -7,7 +7,7 @@ valid(resource) if {
     count(resource.values.body.zones) >= 2
 }
 
-deny_use_resilient_load_lalancer_sku contains reason if {
+deny_use_standard_sku_and_zone_redundant_ip contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.Network/publicIPAddresses")
     not valid(resource)
