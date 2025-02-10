@@ -7,7 +7,20 @@ This repository contains some [Rego](https://www.openpolicyagent.org/) policy fi
 To use these policies, you can use the [Conftest](https://www.conftest.dev/) tool. You can use the following command to run the policies against your Terraform plan:
 
 ```bash
-conftest test --all-namespaces -p <path-to-policies>/policy <path-to-tfplan>
+conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy <path-to-tfplan>
+```
+
+To generate a Terraform plan file:
+
+```bash
+terraform plan -out=tfplan.binary && terraform show -json tfplan.binary > tfplan.json
+```
+
+Or you can use this library against the brown field infrastructure:
+
+```bash
+terraform show -json > state.json
+conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy state.json
 ```
 
 ## Supported Policies

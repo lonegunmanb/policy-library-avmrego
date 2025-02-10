@@ -1,0 +1,131 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Standard",
+                  "tier": "Regional"
+                },
+                "zones": [
+                  "2",
+                  "1"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "invalid_basic": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Basic"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Standard"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Standard"
+                },
+                "zones": []
+              }
+            }
+          }
+        }
+      ]
+    },
+    "invalid_single_zone": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Standard"
+                },
+                "zones": ["1"]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

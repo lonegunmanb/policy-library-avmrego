@@ -1,0 +1,183 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_public_ip.example",
+          "mode": "managed",
+          "type": "azurerm_public_ip",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "sku": "Standard",
+              "sku_tier": "Regional",
+              "zones": [
+                "1",
+                "2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_basic_sku": {
+      "resource_changes": [
+        {
+          "address": "azurerm_public_ip.example",
+          "mode": "managed",
+          "type": "azurerm_public_ip",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "sku": "Basic"
+            },
+            "after_unknown": {
+              "fqdn": true,
+              "id": true,
+              "ip_address": true,
+              "resource_group_name": true,
+              "tags": {}
+            },
+            "before_sensitive": false,
+            "after_sensitive": {
+              "tags": {}
+            }
+          }
+        }
+      ]
+    },
+    "invalid_null_zones": {
+      "resource_changes": [
+        {
+          "address": "azurerm_public_ip.example",
+          "mode": "managed",
+          "type": "azurerm_public_ip",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "sku": "Standard",
+              "zones": null
+            },
+            "after_unknown": {
+              "fqdn": true,
+              "id": true,
+              "ip_address": true,
+              "resource_group_name": true,
+              "tags": {}
+            },
+            "before_sensitive": false,
+            "after_sensitive": {
+              "tags": {}
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_zones": {
+      "resource_changes": [
+        {
+          "address": "azurerm_public_ip.example",
+          "mode": "managed",
+          "type": "azurerm_public_ip",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "sku": "Standard"
+            },
+            "after_unknown": {
+              "fqdn": true,
+              "id": true,
+              "ip_address": true,
+              "resource_group_name": true,
+              "tags": {}
+            },
+            "before_sensitive": false,
+            "after_sensitive": {
+              "tags": {}
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_zones": {
+      "resource_changes": [
+        {
+          "address": "azurerm_public_ip.example",
+          "mode": "managed",
+          "type": "azurerm_public_ip",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "sku": "Standard",
+              "zones": []
+            },
+            "after_unknown": {
+              "fqdn": true,
+              "id": true,
+              "ip_address": true,
+              "resource_group_name": true,
+              "tags": {}
+            },
+            "before_sensitive": false,
+            "after_sensitive": {
+              "tags": {}
+            }
+          }
+        }
+      ]
+    },
+    "invalid_single_zone": {
+      "resource_changes": [
+        {
+          "address": "azurerm_public_ip.example",
+          "mode": "managed",
+          "type": "azurerm_public_ip",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "sku": "Standard",
+              "zones": [
+                "1"
+              ]
+            },
+            "after_unknown": {
+              "fqdn": true,
+              "id": true,
+              "ip_address": true,
+              "resource_group_name": true,
+              "tags": {}
+            },
+            "before_sensitive": false,
+            "after_sensitive": {
+              "tags": {}
+            }
+          }
+        }
+      ]
+    }
+  }
+}

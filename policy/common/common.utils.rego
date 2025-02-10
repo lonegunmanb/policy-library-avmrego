@@ -2,6 +2,10 @@ package utils
 
 import rego.v1
 
+is_azure_type(resource, azure_type) if {
+	regex.match(sprintf("^%s@", [azure_type]), resource.type)
+}
+
 _resource(_input) := output if {
 	_input.plan.resource_changes == _input.plan.resource_changes
 	output := {
