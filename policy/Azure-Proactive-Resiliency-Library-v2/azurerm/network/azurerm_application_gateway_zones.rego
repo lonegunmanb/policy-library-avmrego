@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2.azurerm_application_gateway
 import rego.v1
 
 valid_zones(resource) if {
-    data.utils.exists(resource.values.zones)
+    resource.values.zones == resource.values.zones
     count(resource.values.zones) >= 2
 }
 
