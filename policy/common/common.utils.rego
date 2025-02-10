@@ -3,7 +3,7 @@ package utils
 import rego.v1
 
 _resource(_input) := output if {
-	exists(_input.plan.resource_changes)
+	_input.plan.resource_changes == _input.plan.resource_changes
 	output := {
 	body |
 		r := _input.plan.resource_changes[_]
@@ -17,7 +17,7 @@ _resource(_input) := output if {
 }
 
 _resource(_input) := output if {
-	exists(_input.resource_changes)
+	_input.resource_changes == _input.resource_changes
 	output := {
 	body |
 		r := _input.resource_changes[_]
@@ -31,7 +31,7 @@ _resource(_input) := output if {
 }
 
 _resource(_input) := output if {
-	exists(_input.values.root_module.resources)
+	_input.values.root_module.resources == _input.values.root_module.resources
 	output := {
 	body |
 		r := _input.values.root_module.resources[_]
@@ -49,10 +49,6 @@ resource |
 	some resource in _resource(_input)
 	resource.mode == "managed"
 	resource.type == resource_type
-}
-
-exists(x) if {
-	x == x
 }
 
 is_create_or_update(change_actions) if {
