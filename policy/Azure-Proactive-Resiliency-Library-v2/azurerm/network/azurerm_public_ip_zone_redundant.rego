@@ -7,7 +7,7 @@ valid_ip(resource) if {
    count(resource.values.zones) >= 2
 }
 
-deny_deploy_application_gateway_in_a_zone_redundant_configuration contains reason if {
+deny_use_standard_sku_and_zone_redundant_ip contains reason if {
     resource := data.utils.resource(input, "azurerm_public_ip")[_]
     not valid_ip(resource)
 

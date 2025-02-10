@@ -47,7 +47,8 @@
                 "sku": {
                   "name": "Basic"
                 }
-              }
+              },
+              "type": "Microsoft.Network/publicIPAddresses@2024-05-01"
             }
           }
         }
@@ -71,7 +72,8 @@
                 "sku": {
                   "name": "Standard"
                 }
-              }
+              },
+              "type": "Microsoft.Network/publicIPAddresses@2024-05-01"
             }
           }
         }
@@ -96,7 +98,8 @@
                   "name": "Standard"
                 },
                 "zones": []
-              }
+              },
+              "type": "Microsoft.Network/publicIPAddresses@2024-05-01"
             }
           }
         }
@@ -121,7 +124,8 @@
                   "name": "Standard"
                 },
                 "zones": ["1"]
-              }
+              },
+              "type": "Microsoft.Network/publicIPAddresses@2024-05-01"
             }
           }
         }
