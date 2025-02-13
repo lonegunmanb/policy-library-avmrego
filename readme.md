@@ -52,7 +52,11 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 
 * `Microsoft.Network/publicIPAddresses`
 
-[`use_standard_sku_and_zone_redundant_ip`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/publicIPAddresses/#use-standard-sku-and-zone-redundant-ips-when-applicable)
+[`public_ip_use_standard_sku_and_zone_redundant_ip`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/publicIPAddresses/#use-standard-sku-and-zone-redundant-ips-when-applicable)
+
+* `Microsoft.Network/virtualNetworkGateways`
+
+[`virtual_network_gateway_use_zone_redundant_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/virtualNetworkGateways/#use-zone-redundant-expressroute-gateway-skus)
 
 * `Microsoft.DBforMySQL/flexibleServers`
 

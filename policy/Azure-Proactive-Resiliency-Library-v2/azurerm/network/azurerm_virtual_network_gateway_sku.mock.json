@@ -1,0 +1,204 @@
+{
+  "mock": {
+    "invalid_basic": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "Basic"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_vpngw1": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "VpnGw1"
+            }
+          }
+        }
+      ]
+    },
+    "ergw1az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "ErGw1AZ"
+            }
+          }
+        }
+      ]
+    },
+    "ergw2az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "ErGw2AZ"
+            }
+          }
+        }
+      ]
+    },
+    "ergw3az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "ErGw3AZ"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw1az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "VpnGw1AZ"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw2az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "VpnGw2AZ"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw3az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "VpnGw3AZ"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw4az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "VpnGw4AZ"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw5az": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_network_gateway.example",
+          "mode": "managed",
+          "type": "azurerm_virtual_network_gateway",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "sku": "VpnGw5AZ"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
