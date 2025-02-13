@@ -1,4 +1,4 @@
-package Azure_Proactive_Resiliency_Library_v2.configure_aks_default_node_pool_zones contains
+package Azure_Proactive_Resiliency_Library_v2.configure_aks_default_node_pool_zones
 
 import rego.v1
 
