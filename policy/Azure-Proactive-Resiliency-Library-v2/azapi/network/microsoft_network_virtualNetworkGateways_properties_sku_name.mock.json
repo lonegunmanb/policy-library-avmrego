@@ -1,0 +1,30 @@
+{
+  "mock": {
+    "vpngw1az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "VpnGw1AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
