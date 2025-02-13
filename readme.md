@@ -135,41 +135,94 @@ Any keys other than `valid` and `invalid` would be treated as a single case, any
 
 To contribute a new policy, you **MUST** provide at least one valid case.
 
-## Use unique rule name as `deny` function name
+## Use unique rule name as `deny` rule name
 
 Please do:
 
 ```rego
-deny_migrate_to_application_gateway_v2[reason] {
-    tfplan := data.utils.tfplan(input)
-    resource := tfplan.resource_changes[_]
-    resource.mode == "managed"
-    resource.type == "azapi_resource"
-    data.utils.is_create_or_update(resource.change.actions)
-    data.utils.is_azure_type(resource.change.after, "Microsoft.Network/applicationGateways")
-    not valid_sku(resource)
+deny_migrate_to_application_gateway_v2 contains reason if {
+    resource := data.utils.resource(input, "azurerm_application_gateway")[_]
+    not valid_azurerm_sku(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have 'body.properties.sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azurerm_application_gateway` must have 'sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
 }
 ```
 
 Please **DO NOT**:
 
 ```rego
-deny[reason] {
-    tfplan := data.utils.tfplan(input)
-    resource := tfplan.resource_changes[_]
-    resource.mode == "managed"
-    resource.type == "azapi_resource"
-    data.utils.is_create_or_update(resource.change.actions)
-    data.utils.is_azure_type(resource.change.after, "Microsoft.Network/applicationGateways")
-    not valid_sku(resource)
+deny contains reason if {
+    resource := data.utils.resource(input, "azurerm_application_gateway")[_]
+    not valid_azurerm_sku(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have 'body.properties.sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azurerm_application_gateway` must have 'sku.name' set to 'Standard_v2' or 'WAF_v2': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2", [resource.address])
 }
 ```
 
 These rule names could be used in [`exceptions`](https://www.conftest.dev/exceptions/) so users could skip the check for specific resources.
+
+## Use rule name as package name suffix
+
+Please do:
+
+```rego
+package Azure_Proactive_Resiliency_Library_v2.configure_cosmosdb_account_continuous_backup_mode
+
+import rego.v1
+
+valid_azurerm_cosmosdb_account_backup_policy_type(resource) if {
+    resource.values.backup[_].type == "Continuous"
+}
+
+deny_configure_cosmosdb_account_continuous_backup_mode contains reason if {
+    resource := data.utils.resource(input, "azurerm_cosmosdb_account")[_]
+    not valid_azurerm_cosmosdb_account_backup_policy_type(resource)
+
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azurerm_cosmosdb_account` must have backup type configured to 'Continuous': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode", [resource.address])
+}
+```
+
+Since we have rules for both `azurerm` and `azapi` providers, we need a predictable way to add a rule into exception list. Assuming we have the same rule for `azapi` resource:
+
+```rego
+package Azure_Proactive_Resiliency_Library_v2.configure_cosmosdb_account_continuous_backup_mode
+
+import rego.v1
+
+valid_azapi_cosmosdb_account_backup_policy_type(resource) if {
+    resource.values.body.properties.backupPolicy.type == "Continuous"
+}
+
+deny_configure_cosmosdb_account_continuous_backup_mode contains reason if {
+    resource := data.utils.resource(input, "azapi_resource")[_]
+    data.utils.is_azure_type(resource.values, "Microsoft.DocumentDB/databaseAccounts")
+    not valid_azapi_cosmosdb_account_backup_policy_type(resource)
+
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have backup type configured to 'Continuous': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode", [resource.address])
+}
+```
+
+To ignore rule `configure_cosmosdb_account_continuous_backup_mode`, we need a new rego file:
+
+```Rego
+package Azure_Proactive_Resiliency_Library_v2.configure_cosmosdb_account_continuous_backup_mode
+
+import rego.v1
+
+exception contains rules if {
+    rules = ["configure_cosmosdb_account_continuous_backup_mode"]
+}
+```
+
+## Make your helper function name unique
+
+As we are using rule name as package name suffix, we need to make sure the helper function name is unique. Please use the helper function name unique, the provider name could help here:
+
+```rego
+valid_azapi_cosmosdb_account_backup_policy_type(resource) if {
+    resource.values.body.properties.backupPolicy.type == "Continuous"
+}
+```
 
 ## Do not use `input` directly in your policy
 
@@ -177,7 +230,7 @@ According to the [HashiCorp's OPA policies document](https://github.com/aws-samp
 
 >The run data contains information like workspace details and the organization name. To access the properties from the Terraform plan data in your policies, use `input.plan`. To access properties from the Terraform run, use `input.run`.
 
-Unlike Terraform plan file, the actual plan on HCP Terraform are wrapped in `input.plan`, so you **MUST** use `tfplan := data.utils.tfplan(input)` to get the actual plan object.
+Unlike Terraform plan file, the actual plan on HCP Terraform are wrapped in `input.plan`, so you **MUST** use `resource := data.utils.resource(input, "azurerm_postgresql_flexible_server")[_]` to get the actual plan object.
 
 ## Don't forget to update the README
 
