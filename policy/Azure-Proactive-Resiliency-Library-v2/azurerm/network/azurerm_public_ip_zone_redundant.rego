@@ -1,4 +1,4 @@
-package Azure_Proactive_Resiliency_Library_v2.use_standard_sku_and_zone_redundant_ip
+package Azure_Proactive_Resiliency_Library_v2.public_ip_use_standard_sku_and_zone_redundant_ip
 
 import rego.v1
 
@@ -7,7 +7,7 @@ valid_azurerm_sku(resource) if {
    count(resource.values.zones) >= 2
 }
 
-deny_use_standard_sku_and_zone_redundant_ip contains reason if {
+deny_public_ip_use_standard_sku_and_zone_redundant_ip contains reason if {
     resource := data.utils.resource(input, "azurerm_public_ip")[_]
     not valid_azurerm_sku(resource)
 
