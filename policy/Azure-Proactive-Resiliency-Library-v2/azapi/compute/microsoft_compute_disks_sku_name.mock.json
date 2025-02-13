@@ -1,0 +1,76 @@
+{
+  "mock": {
+    "invalid_Standard_LRS": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Standard_LRS"
+                }
+              },
+              "type": "Microsoft.Compute/disks@2024-03-02"
+            }
+          }
+        }
+      ]
+    },
+    "premium_lrs": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "Premium_LRS"
+                }
+              },
+              "type": "Microsoft.Compute/disks@2024-03-02"
+            }
+          }
+        }
+      ]
+    },
+    "ultrassd_lrs": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "sku": {
+                  "name": "UltraSSD_LRS"
+                }
+              },
+              "type": "Microsoft.Compute/disks@2024-03-02"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

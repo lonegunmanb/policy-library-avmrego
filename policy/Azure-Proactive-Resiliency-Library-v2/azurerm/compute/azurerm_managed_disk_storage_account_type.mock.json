@@ -1,0 +1,61 @@
+{
+  "mock": {
+    "invalid_Standard_LRS": {
+      "resource_changes": [
+        {
+          "address": "azurerm_managed_disk.example",
+          "mode": "managed",
+          "type": "azurerm_managed_disk",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "storage_account_type": "Standard_LRS"
+            }
+          }
+        }
+      ]
+    },
+    "premium_lrs": {
+      "resource_changes": [
+        {
+          "address": "azurerm_managed_disk.example",
+          "mode": "managed",
+          "type": "azurerm_managed_disk",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "storage_account_type": "Premium_LRS"
+            }
+          }
+        }
+      ]
+    },
+    "ultrassd_lrs": {
+      "resource_changes": [
+        {
+          "address": "azurerm_managed_disk.example",
+          "mode": "managed",
+          "type": "azurerm_managed_disk",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "storage_account_type": "UltraSSD_LRS"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
