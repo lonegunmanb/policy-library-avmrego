@@ -1,8 +1,8 @@
-package Azure_Proactive_Resiliency_Library_v2.Microsoft_ContainerService_managedClusters
+package Azure_Proactive_Resiliency_Library_v2.configure_aks_default_node_pool_zones
 
 import rego.v1
 
-valid_zones(resource) if {
+valid_azapi_zones(resource) if {
     pool := resource.values.body.properties.agentPoolProfiles[_]
     count(pool.availabilityZones) >= 2
 }
