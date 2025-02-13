@@ -1,0 +1,36 @@
+{
+  "mock": {
+    "valid_linux_virtual_machine": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "invalid_legacy_resource": {
+      "resource_changes": [
+        {
+          "address": "azurerm_virtual_machine.main",
+          "mode": "managed",
+          "type": "azurerm_virtual_machine",
+          "name": "main",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "after": {}
+          }
+        }
+      ]
+    }
+  }
+}
