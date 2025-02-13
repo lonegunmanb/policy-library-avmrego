@@ -3,11 +3,11 @@ package Azure_Proactive_Resiliency_Library_v2.mission_critical_virtual_machine_s
 import rego.v1
 
 valid_azurerm_os_disk_storage_account_type(resource) if {
-    startswith(resource.os_disk.storage_account_type, "Premium")
+    startswith(resource.values.os_disk[_].storage_account_type, "Premium")
 }
 
 valid_azurerm_os_disk_storage_account_type(resource) if {
-    startswith(resource.os_disk.storage_account_type, "Ultra")
+    startswith(resource.values.os_disk[_].storage_account_type, "Ultra")
 }
 
 deny_mission_critical_virtual_machine_should_use_premium_or_ultra_disks contains reason if {

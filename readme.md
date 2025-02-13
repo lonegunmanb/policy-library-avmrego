@@ -27,6 +27,11 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 
 ### [Azure-Proactive-Resiliency-Library-v2](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/)
 
+* `Microsoft.Compute/virtualMachines`
+
+[`mission_critical_virtual_machine_should_use_premium_or_ultra_disks`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#mission-critical-workloads-should-consider-using-premium-or-ultra-disks)
+`legacy_virtual_machine_not_allowed`
+
 * `Microsoft.ContainerService/managedClusters`
 
 [`configure_aks_default_node_pool_zones`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/ContainerService/managedClusters/#deploy-aks-cluster-across-availability-zones)
@@ -57,6 +62,10 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 * `Microsoft.DBforPostgreSQL/flexibleServers`
 
 [`postgresql_flexible_server_high_availability_mode_zone_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforPostgreSQL/flexibleServers/#enable-ha-with-zone-redundancy)
+
+* `Microsoft.Storage/storageAccounts`
+
+[`storage_accounts_are_zone_or_region_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Storage/storageAccounts/#ensure-that-storage-accounts-are-zone-or-region-redundant)
 
 ## Apply(skip) policies
 
