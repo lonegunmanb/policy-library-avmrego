@@ -1,0 +1,42 @@
+{
+  "mock": {
+    "GRS": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "account_replication_type": "GRS"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_LRS": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "account_replication_type": "LRS"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
