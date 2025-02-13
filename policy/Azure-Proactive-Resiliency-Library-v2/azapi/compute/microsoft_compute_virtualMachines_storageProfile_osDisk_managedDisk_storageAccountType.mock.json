@@ -1,0 +1,97 @@
+{
+  "mock": {
+    "invalid_standard_lrs": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osDisk": {
+                      "managedDisk": {
+                        "storageAccountType": "Standard_LRS"
+                      }
+                    }
+                  }
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    },
+    "premium_lrs":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osDisk": {
+                      "managedDisk": {
+                        "storageAccountType": "Premium_LRS"
+                      }
+                    }
+                  }
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    },
+    "premium_zrs":  {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osDisk": {
+                      "managedDisk": {
+                        "storageAccountType": "Premium_ZRS"
+                      }
+                    }
+                  }
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

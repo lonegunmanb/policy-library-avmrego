@@ -1,0 +1,73 @@
+{
+  "mock": {
+    "invalid_standard_lrs": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "os_disk": [
+                {
+                  "storage_account_type": "Standard_LRS"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "premium_lrs": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "os_disk": [
+                {
+                  "storage_account_type": "Premium_LRS"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "premium_zrs": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "os_disk": [
+                {
+                  "storage_account_type": "Premium_ZRS"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
