@@ -25,6 +25,240 @@
           }
         }
       ]
+    },
+    "invalid_basic": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "Basic"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_vpngw1": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "VpnGw1"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "ergw1az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "ErGw1AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "ergw2az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "ErGw2AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "ergw3az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "ErGw3AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw2az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "VpnGw2AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw3az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "VpnGw3AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw4az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "VpnGw4AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "vpngw5az": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "sku": {
+                    "name": "VpnGw5AZ"
+                  }
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
     }
   }
 }
