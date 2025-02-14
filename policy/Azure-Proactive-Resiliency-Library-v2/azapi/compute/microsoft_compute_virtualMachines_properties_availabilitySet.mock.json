@@ -1,0 +1,53 @@
+{
+  "mock": {
+    "invalid_case": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "availabilitySet": {
+                    "id": "/subscriptions/xxx/resourceGroups/vmss-neat/providers/Microsoft.Compute/availabilitySets/acctestavset"
+                  }
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    },
+    "valid_case": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
