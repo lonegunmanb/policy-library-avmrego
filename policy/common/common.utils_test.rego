@@ -110,3 +110,19 @@ test_is_resource_create_or_update if {
 	not data.utils.is_resource_create_or_update({"change": {"actions": ["create", "delete"]}})
 	data.utils.is_resource_create_or_update({"change": {"actions": ["update"]}})
 }
+
+test_is_azure_type if {
+    # Test case: resource type matches the specified Azure type
+    utils.is_azure_type({"type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"}, "Microsoft.DocumentDB/databaseAccounts")
+
+    # Test case: resource type does not match the specified Azure type
+    r := {"type": "Microsoft.Network/loadBalancers@2024-12-01-preview"}
+    azure_type := "Microsoft.DocumentDB/databaseAccounts"
+    not utils.is_azure_type({"type": "Microsoft.Network/loadBalancers@2024-12-01-preview"}, "Microsoft.DocumentDB/databaseAccounts")
+
+    # Test case: resource type matches a different Azure type
+   utils.is_azure_type({"type": "Microsoft.Network/loadBalancers@2024-12-01-preview"}, "Microsoft.Network/loadBalancers")
+
+    # Test case: resource type does not match any Azure type
+    not utils.is_azure_type({"type": "Custom.ResourceType@2024-12-01-preview"}, "Microsoft.DocumentDB/databaseAccounts")
+}

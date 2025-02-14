@@ -37,16 +37,16 @@ jobs:
       - name: Run utils tests
         run: |
           echo `opa version`
-          target="./policy/common/common.utils.rego"
+          target="./policy/common"
           echo $target
           set -o pipefail
           opa test $target -v || exit 1
-          coverage_values=`opa test --coverage $target -v | grep -iE '"coverage": [ 0-9 ]+'`
-          coverage=`printf "${coverage_values}%%\n" | tail -n 1 | xargs`
-          echo $coverage
+          coverage_json=$(opa test --coverage --format=json $target -v)
+          coverage=$(echo $coverage_json | jq '.coverage')
+          echo "Coverage: $coverage"
 
-          if [ "$coverage" != "coverage: 100%" ]; then
-            opa test --coverage $target -v
+          if [ "$coverage" != "100" ]; then
+            echo $coverage_json | jq
             printf "\n\e[0;31mRule test coverage must be 100%%\e[0m\n"
             exit 1
           fi;
