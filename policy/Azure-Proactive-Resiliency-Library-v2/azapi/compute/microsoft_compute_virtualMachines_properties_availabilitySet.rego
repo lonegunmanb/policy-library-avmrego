@@ -11,5 +11,5 @@ deny_migrate_vm_using_availability_sets_to_vmss_flex contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.Compute/virtualMachines")
     not valid_azapi_migrate_vm_using_availability_sets_to_vmss_flex(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must not define `properties.availabilitySet`: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#migrate-vms-using-availability-sets-to-vmss-flex", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/migrate_vm_using_availability_sets_to_vmss_flex: '%s' `azapi_resource` must not define `properties.availabilitySet`: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#migrate-vms-using-availability-sets-to-vmss-flex", [resource.address])
 }

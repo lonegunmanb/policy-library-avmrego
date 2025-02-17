@@ -11,5 +11,5 @@ deny_mysql_flexible_server_geo_redundant_backup_enabled contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.DBforMySQL/flexibleServers")
     not valid_azapi_mysql_flexible_server_geo_redundant_backup_enabled(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have 'backup.geoRedundantBackup' set to '\"Enabled\"': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#configure-geo-redundant-backup-storage", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/mysql_flexible_server_geo_redundant_backup_enabled: '%s' `azapi_resource` must have 'backup.geoRedundantBackup' set to '\"Enabled\"': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#configure-geo-redundant-backup-storage", [resource.address])
 }

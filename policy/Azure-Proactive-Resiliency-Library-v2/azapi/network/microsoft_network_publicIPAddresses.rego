@@ -12,5 +12,5 @@ deny_use_standard_sku_and_zone_redundant_ip contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.Network/publicIPAddresses")
     not valid_azapi_use_standard_sku_and_zone_redundant_ip(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have configured `sku.name` to `\"Standard\"` and a `zones` that cotnains at least 2 zones: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/publicIPAddresses/#use-standard-sku-and-zone-redundant-ips-when-applicable", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/use_standard_sku_and_zone_redundant_ip: '%s' `azapi_resource` must have configured `sku.name` to `\"Standard\"` and a `zones` that cotnains at least 2 zones: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/publicIPAddresses/#use-standard-sku-and-zone-redundant-ips-when-applicable", [resource.address])
 }

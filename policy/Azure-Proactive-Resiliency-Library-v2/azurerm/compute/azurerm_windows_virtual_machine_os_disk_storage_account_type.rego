@@ -14,5 +14,5 @@ deny_mission_critical_virtual_machine_should_use_premium_or_ultra_disks contains
     resource := data.utils.resource(input, "azurerm_windows_virtual_machine")[_]
     not valid_azurerm_mission_critical_virtual_machine_should_use_premium_or_ultra_disks_os_disk_win(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azurerm_windows_virtual_machine` must have configured `os_disk.storage_account_type` to use Premium or Ultra type: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#mission-critical-workloads-should-consider-using-premium-or-ultra-disks", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/mission_critical_virtual_machine_should_use_premium_or_ultra_disks: '%s' `azurerm_windows_virtual_machine` must have configured `os_disk.storage_account_type` to use Premium or Ultra type: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#mission-critical-workloads-should-consider-using-premium-or-ultra-disks", [resource.address])
 }
