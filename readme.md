@@ -77,10 +77,10 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 To apply a subset of policies, you can specify the policy folders you want to apply, e.g.:
 
 ```Bash
-conftest test --all-namespaces -p <path-to-policies>/policy/Azure-Proactive-Resiliency-Library-v2 -p <path-to-policies>/policy/common <path-to-tfplan>
+conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy/Azure-Proactive-Resiliency-Library-v2 <path-to-tfplan>
 ```
 
-This will only apply the policies under `Azure-Proactive-Resiliency-Library-v2` and `common` folders. Please note that `policy/common` is required.
+This will only apply the policies under `Azure-Proactive-Resiliency-Library-v2`.
 
 To skip a subset of policies, you can create an exception rego file, e.g.:
 
@@ -152,6 +152,8 @@ Alternatively, you can put all cases under the `mock` key directly:
 Any keys other than `valid` and `invalid` would be treated as a single case, any single cases without invalid prefix would be considered as a valid case.
 
 To contribute a new policy, you **MUST** provide at least one valid case.
+
+All policies **MUST** support both `azurerm` and `azapi` providers.
 
 ## Use unique rule name as `deny` rule name
 
