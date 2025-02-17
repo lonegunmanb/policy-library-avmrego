@@ -85,12 +85,12 @@ This will only apply the policies under `Azure-Proactive-Resiliency-Library-v2`.
 To skip a subset of policies, you can create an exception rego file, e.g.:
 
 ```rego
-package Azure_Proactive_Resiliency_Library_v2.use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer
+package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 
 exception[rules] {
-  rules = ["use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer"]
+  rules = ["use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer", "storage_accounts_are_zone_or_region_redundant"]
 }
 ```
 

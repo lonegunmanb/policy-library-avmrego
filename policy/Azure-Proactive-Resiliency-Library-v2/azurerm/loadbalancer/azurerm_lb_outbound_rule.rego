@@ -1,4 +1,4 @@
-package Azure_Proactive_Resiliency_Library_v2.use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer
+package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 

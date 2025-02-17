@@ -1,4 +1,4 @@
-package Azure_Proactive_Resiliency_Library_v2.migrate_vm_using_availability_sets_to_vmss_flex
+package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 
