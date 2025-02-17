@@ -11,5 +11,5 @@ deny_mysql_flexible_server_high_availability_zone_redundant contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.DBforMySQL/flexibleServers")
     not valid_azapi_mysql_flexible_server_high_availability_zone_redundant(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have 'highAvailability.mode' set to 'ZoneRedundant': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#enable-ha-with-zone-redundancy", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/mysql_flexible_server_high_availability_zone_redundant: '%s' `azapi_resource` must have 'highAvailability.mode' set to 'ZoneRedundant': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#enable-ha-with-zone-redundancy", [resource.address])
 }

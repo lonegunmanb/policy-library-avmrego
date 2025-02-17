@@ -11,5 +11,5 @@ deny_configure_cosmosdb_account_continuous_backup_mode contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.DocumentDB/databaseAccounts")
     not valid_azapi_configure_cosmosdb_account_continuous_backup_mode(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2: '%s' `azapi_resource` must have backup type configured to 'Continuous': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/configure_cosmosdb_account_continuous_backup_mode: '%s' `azapi_resource` must have backup type configured to 'Continuous': https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode", [resource.address])
 }
