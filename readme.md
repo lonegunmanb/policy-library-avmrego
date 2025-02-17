@@ -89,7 +89,7 @@ package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 
-exception[rules] {
+exception contains rules if {
   rules = ["use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer", "storage_accounts_are_zone_or_region_redundant"]
 }
 ```
@@ -97,7 +97,7 @@ exception[rules] {
 Save it to `exception.rego`, then you can apply the exception file with the policies:
 
 ```Bash
-conftest test --all-namespaces -p exception.rego -p <path-to-policies>/policy <path-to-tfplan>
+conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy/Azure-Proactive-Resiliency-Library-v2 -p policy -p exception.rego <path-to-tfplan>
 ```
 
 ## Contribution
