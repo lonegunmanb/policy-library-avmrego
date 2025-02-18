@@ -6,7 +6,7 @@ valid_azurerm_service_fabric_cluster_has_active_directory(resource) if {
     resource.values.azure_active_directory[0].tenant_id != null
 }
 
-deny_service_fabric_cluster_without_active_directory contains reason if {
+deny_CKV_AZURE_126 contains reason if {
     resource := data.utils.resource(input, "azurerm_service_fabric_cluster")[_]
     not valid_azurerm_service_fabric_cluster_has_active_directory(resource)
 
