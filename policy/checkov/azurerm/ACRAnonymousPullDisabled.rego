@@ -3,11 +3,16 @@ package checkov
 import rego.v1
 
 valid_azurerm_container_registry_anonymous_pull_disabled(resource) if {
-    not (resource.values.sku == "Standard" or resource.values.sku == "Premium")
+    resource.values.sku != "Standard"
+    resource.values.sku != "Premium"
 }
 
 valid_azurerm_container_registry_anonymous_pull_disabled(resource) if {
-    not resource.values.anonymous_pull_enabled == true
+    not resource.values.anonymous_pull_enabled == resource.values.anonymous_pull_enabled
+}
+
+valid_azurerm_container_registry_anonymous_pull_disabled(resource) if {
+    resource.values.anonymous_pull_enabled == false
 }
 
 deny_CKV_AZURE_138 contains reason if {
