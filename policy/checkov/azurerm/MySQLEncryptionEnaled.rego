@@ -6,7 +6,7 @@ valid_azurerm_mysql_server_infrastructure_encryption_enabled(resource) if {
     resource.values.infrastructure_encryption_enabled == true
 }
 
-deny_mysql_server_infrastructure_encryption contains reason if {
+deny_CKV_AZURE_96 contains reason if {
     resource := data.utils.resource(input, "azurerm_mysql_server")[_]
     not valid_azurerm_mysql_server_infrastructure_encryption_enabled(resource)
 

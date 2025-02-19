@@ -6,7 +6,7 @@ valid_azurerm_app_service_slot_debug_disabled(resource) if {
     resource.values.site_config[0].remote_debugging_enabled[0] == false
 }
 
-deny_app_service_slot_debug_enabled contains reason if {
+deny_CKV_AZURE_155 contains reason if {
     resource := data.utils.resource(input, "azurerm_app_service_slot")[_]
     not valid_azurerm_app_service_slot_debug_disabled(resource)
 

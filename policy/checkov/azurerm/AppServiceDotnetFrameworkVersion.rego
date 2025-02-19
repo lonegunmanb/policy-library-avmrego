@@ -3,10 +3,14 @@ package checkov
 import rego.v1
 
 valid_azurerm_app_service_dotnet_framework_version(resource) if {
+    not resource.values.site_config[0]
+}
+
+valid_azurerm_app_service_dotnet_framework_version(resource) if {
     resource.values.site_config[0].dotnet_framework_version == "v6.0"
 }
 
-deny_app_service_dotnet_framework_version contains reason if {
+deny_CKV_AZURE_80 contains reason if {
     resource := data.utils.resource(input, "azurerm_app_service")[_]
     not valid_azurerm_app_service_dotnet_framework_version(resource)
 

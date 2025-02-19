@@ -6,7 +6,7 @@ valid_azurerm_kusto_cluster_double_encryption(resource) if {
     resource.values.double_encryption_enabled == true
 }
 
-deny_azure_data_explorer_double_encryption contains reason if {
+deny_CKV_AZURE_75 contains reason if {
     resource := data.utils.resource(input, "azurerm_kusto_cluster")[_]
     not valid_azurerm_kusto_cluster_double_encryption(resource)
 

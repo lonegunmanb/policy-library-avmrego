@@ -6,7 +6,7 @@ valid_azurerm_function_app_min_tls_version(resource) if {
     resource.values.site_config[0].min_tls_version >= 1.2
 }
 
-deny_function_app_min_tls_version contains reason if {
+deny_CKV_AZURE_145 contains reason if {
     resource := data.utils.resource(input, "azurerm_function_app")[_]
     not valid_azurerm_function_app_min_tls_version(resource)
 

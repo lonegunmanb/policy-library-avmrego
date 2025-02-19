@@ -3,10 +3,10 @@ package checkov
 import rego.v1
 
 valid_azurerm_frontdoor_firewall_policy_enabled(resource) if {
-    resource.values.policy_settings[0].enabled == [true]
+    resource.values.policy_settings[0].enabled[0] == true
 }
 
-deny_frontdoor_use_waf_mode contains reason if {
+deny_CKV_AZURE_123 contains reason if {
     resource := data.utils.resource(input, "azurerm_frontdoor_firewall_policy")[_]
     not valid_azurerm_frontdoor_firewall_policy_enabled(resource)
 
