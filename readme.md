@@ -32,6 +32,7 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 `legacy_virtual_machine_not_allowed`
 [`migrate_vm_using_availability_sets_to_vmss_flex`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#migrate-vms-using-availability-sets-to-vmss-flex)
 [`mission_critical_virtual_machine_should_use_premium_or_ultra_disks`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#mission-critical-workloads-should-consider-using-premium-or-ultra-disks)
+[`mission_critical_virtual_machine_should_use_zone`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#deploy-vms-across-availability-zones)
 
 * `Microsoft.ContainerService/managedClusters`
 
