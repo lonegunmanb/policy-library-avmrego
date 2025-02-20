@@ -6,6 +6,10 @@ valid_azapi_mission_critical_virtual_machine_should_use_zone(resource) if {
     count(resource.values.body.zones) > 0
 }
 
+valid_azapi_mission_critical_virtual_machine_should_use_zone(resource) if {
+    resource.after_unknown.zones == resource.after_unknown.zones
+}
+
 deny_mission_critical_virtual_machine_should_use_zone contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.Compute/virtualMachines")
