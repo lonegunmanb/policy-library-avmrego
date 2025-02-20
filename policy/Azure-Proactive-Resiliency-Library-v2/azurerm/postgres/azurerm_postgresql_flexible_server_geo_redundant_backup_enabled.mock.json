@@ -1,0 +1,59 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_postgresql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_postgresql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "geo_redundant_backup_enabled": true
+            }
+          }
+        }
+      ]
+    },
+    "invalid_geo_redundant_backup_disabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_postgresql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_postgresql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "geo_redundant_backup_enabled": false
+            }
+          }
+        }
+      ]
+    },
+    "invalid_geo_redundant_backup_omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_postgresql_flexible_server.example",
+          "mode": "managed",
+          "type": "azurerm_postgresql_flexible_server",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ]
+    }
+  }
+}
