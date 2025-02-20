@@ -55,6 +55,26 @@
           }
         }
       ]
+    },
+    "invalid_after_unknown": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {},
+            "after_unknown": {
+              "availability_set_id": true
+            }
+          }
+        }
+      ]
     }
   }
 }
