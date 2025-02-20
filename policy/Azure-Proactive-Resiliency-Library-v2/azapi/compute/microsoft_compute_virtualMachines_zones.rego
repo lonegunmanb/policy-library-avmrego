@@ -7,7 +7,7 @@ valid_azapi_mission_critical_virtual_machine_should_use_zone(resource) if {
 }
 
 valid_azapi_mission_critical_virtual_machine_should_use_zone(resource) if {
-    resource.after_unknown.zones == resource.after_unknown.zones
+    resource.after_unknown.body.zones == resource.after_unknown.body.zones
 }
 
 deny_mission_critical_virtual_machine_should_use_zone contains reason if {
