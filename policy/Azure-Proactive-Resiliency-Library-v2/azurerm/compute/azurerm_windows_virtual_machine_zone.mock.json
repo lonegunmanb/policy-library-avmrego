@@ -1,0 +1,41 @@
+{
+  "mock": {
+    "valid_zone": {
+      "resource_changes": [
+        {
+          "address": "azurerm_windows_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_windows_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "zone": "1"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_zone": {
+      "resource_changes": [
+        {
+          "address": "azurerm_windows_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_windows_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    }
+  }
+}
