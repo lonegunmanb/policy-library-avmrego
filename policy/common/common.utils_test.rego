@@ -240,3 +240,21 @@ test_is_azure_type if {
     # Test case: resource type does not match any Azure type
     not utils.is_azure_type({"type": "Custom.ResourceType@2024-12-01-preview"}, "Microsoft.DocumentDB/databaseAccounts")
 }
+
+test_get_change_after_unknown if {
+    # Test case: after_unknown is true
+    input_with_after_unknown := {
+        "change": {
+            "after_unknown": 123
+        }
+    }
+    result_with_after_unknown := utils._get_change_after_unknown(input_with_after_unknown)
+    result_with_after_unknown == 123
+
+    # Test case: after_unknown is not present
+    input_without_after_unknown := {
+        "change": {}
+    }
+    result_without_after_unknown := utils._get_change_after_unknown(input_without_after_unknown)
+    result_without_after_unknown == []
+}
