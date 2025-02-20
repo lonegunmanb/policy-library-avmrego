@@ -6,6 +6,10 @@ valid_azurerm_linux_mission_critical_virtual_machine_should_use_zone(resource) i
     resource.values.zone == resource.values.zone
 }
 
+valid_azurerm_linux_mission_critical_virtual_machine_should_use_zone(resource) if {
+    resource.after_unknown.zone == resource.after_unknown.zone
+}
+
 deny_mission_critical_virtual_machine_should_use_zone contains reason if {
     resource := data.utils.resource(input, "azurerm_linux_virtual_machine")[_]
     not valid_azurerm_linux_mission_critical_virtual_machine_should_use_zone(resource)

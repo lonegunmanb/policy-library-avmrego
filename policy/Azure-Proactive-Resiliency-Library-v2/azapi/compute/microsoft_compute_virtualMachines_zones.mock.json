@@ -24,6 +24,54 @@
         }
       ]
     },
+    "valid_after_unknown_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            },
+            "after_unknown": {
+              "body": {
+                "zones": [true]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "valid_after_unknown_zones2": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            },
+            "after_unknown": {
+              "body": {
+                "zones": true
+              }
+            }
+          }
+        }
+      ]
+    },
     "invalid_no_zones": {
       "resource_changes": [
         {
