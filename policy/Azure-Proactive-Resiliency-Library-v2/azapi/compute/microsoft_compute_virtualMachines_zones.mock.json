@@ -1,0 +1,71 @@
+{
+  "mock": {
+    "valid_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "zones": [
+                  "1"
+                ]
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_no_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_zones": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "zones": []
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
