@@ -92,6 +92,120 @@ test_resource_values_root_module_resources if {
     resource.type == "azurerm_cosmosdb_account"
 }
 
+test_resource_values_child_module_resources if {
+    _input := {
+        "values": {
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "azurerm_cosmosdb_account.example",
+                        "values": {
+                            "backup": [
+                                {
+                                    "type": "Continuous"
+                                }
+                            ]
+                        },
+                        "mode": "managed",
+                        "type": "azurerm_cosmosdb_account"
+                    }
+                ],
+                "child_modules": [
+                    {
+                        "address": "module.sub",
+                        "resources": [
+                            {
+                                "address": "module.sub.null_resource.res",
+                                "mode": "managed",
+                                "type": "null_resource",
+                                "values": {
+                                    "id": "2822366925496045444",
+                                    "triggers": null
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        "address": "module.sub2",
+                        "resources": [
+                            {
+                                "address": "module.sub2.null_resource.res",
+                                "mode": "managed",
+                                "type": "null_resource",
+                                "values": {
+                                    "id": "2822366925496045445",
+                                    "triggers": null
+                                },
+                            }
+                        ]
+                    },
+                ]
+            }
+        }
+    }
+    cosmosdb_resources := utils.resource(_input, "azurerm_cosmosdb_account")
+    count(cosmosdb_resources) == 1
+    cosmosdb := cosmosdb_resources[_]
+    cosmosdb.address == "azurerm_cosmosdb_account.example"
+    cosmosdb.values.backup[0].type == "Continuous"
+    cosmosdb.mode == "managed"
+    cosmosdb.type == "azurerm_cosmosdb_account"
+
+    null_resources := utils.resource(_input, "null_resource")
+    count(null_resources) == 2
+    null_resource := null_resources[1]
+    null_resource.address == "module.sub2.null_resource.res"
+    null_resource.values.id == "2822366925496045445"
+    null_resource.mode == "managed"
+    null_resource.type == "null_resource"
+}
+
+test_resource_values_child_module_resources_only if {
+    _input := {
+        "values": {
+            "root_module": {
+                "child_modules": [
+                    {
+                        "address": "module.sub",
+                        "resources": [
+                            {
+                                "address": "module.sub.null_resource.res",
+                                "mode": "managed",
+                                "type": "null_resource",
+                                "values": {
+                                    "id": "2822366925496045444",
+                                    "triggers": null
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        "address": "module.sub2",
+                        "resources": [
+                            {
+                                "address": "module.sub2.null_resource.res",
+                                "mode": "managed",
+                                "type": "null_resource",
+                                "values": {
+                                    "id": "2822366925496045445",
+                                    "triggers": null
+                                },
+                            }
+                        ]
+                    },
+                ]
+            }
+        }
+    }
+    null_resources := utils.resource(_input, "null_resource")
+    count(null_resources) == 2
+    null_resource := null_resources[1]
+    null_resource.address == "module.sub2.null_resource.res"
+    null_resource.values.id == "2822366925496045445"
+    null_resource.mode == "managed"
+    null_resource.type == "null_resource"
+}
+
 test_is_create_or_update if {
 	data.utils.is_create_or_update(["create"])
 	data.utils.is_create_or_update(["update", "create"])

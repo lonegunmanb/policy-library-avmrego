@@ -35,25 +35,37 @@ _resource(_input) := output if {
 }
 
 _resource(_input) := output if {
-	_input.values.root_module.resources == _input.values.root_module.resources
-	output := {
-	body |
-		r := _input.values.root_module.resources[_]
-		body := {
-			"address": r.address,
-			"values": r.values,
-			"mode": r.mode,
-			"type": r.type,
-		}
-	}
+	_input.values.root_module == _input.values.root_module
+	root_resources := [
+	    body |
+	    	r := _input.values.root_module.resources[_]
+	    	body := {
+	    		"address": r.address,
+	    		"values": r.values,
+	    		"mode": r.mode,
+	    		"type": r.type,
+	    	}
+	]
+	child_resources := [
+	    body |
+	        cm := _input.values.root_module.child_modules[_]
+	        r := cm.resources[_]
+	        body := {
+	            "address": r.address,
+	            "values": r.values,
+                "mode": r.mode,
+                "type": r.type,
+	        }
+	]
+	output := array.concat(root_resources, child_resources)
 }
 
-resource(_input, resource_type) := {
+resource(_input, resource_type) := [
 resource |
 	some resource in _resource(_input)
 	resource.mode == "managed"
 	resource.type == resource_type
-}
+]
 
 is_create_or_update(change_actions) if {
 	change_actions[count(change_actions) - 1] == ["create", "update"][_]
