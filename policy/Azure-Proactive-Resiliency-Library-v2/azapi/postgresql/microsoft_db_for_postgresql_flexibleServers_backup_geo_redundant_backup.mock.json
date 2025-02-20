@@ -1,0 +1,83 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "backup": {
+                    "geoRedundantBackup": "Enabled"
+                  }
+                }
+              },
+              "type": "Microsoft.DBforPostgreSQL/flexibleServers@2024-11-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_geo_redundant_backup_disabled": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "backup": {
+                    "geoRedundantBackup": "Disabled"
+                  }
+                }
+              },
+              "type": "Microsoft.DBforPostgreSQL/flexibleServers@2024-11-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_geo_redundant_backup_omitted": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "backup": {}
+                }
+              },
+              "type": "Microsoft.DBforPostgreSQL/flexibleServers@2024-11-01-preview"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -67,6 +67,7 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 
 * `Microsoft.DBforPostgreSQL/flexibleServers`
 
+[`postgresql_flexible_server_geo_redundant_backup_enabled`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#configure-geo-redundant-backup-storage)
 [`postgresql_flexible_server_high_availability_mode_zone_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforPostgreSQL/flexibleServers/#enable-ha-with-zone-redundancy)
 
 * `Microsoft.Storage/storageAccounts`
