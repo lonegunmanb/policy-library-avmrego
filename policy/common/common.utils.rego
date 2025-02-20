@@ -6,6 +6,11 @@ is_azure_type(resource, azure_type) if {
 	regex.match(sprintf("^%s@", [azure_type]), resource.type)
 }
 
+_get_change_after_unknown(r) := output if {
+    r.change.after_unknown == r.change.after_unknown
+    output := r.change.after_unknown
+} else = []
+
 _resource(_input) := output if {
 	_input.plan.resource_changes == _input.plan.resource_changes
 	output := {
@@ -14,7 +19,7 @@ _resource(_input) := output if {
 		body := {
 			"address": r.address,
 			"values": r.change.after,
-			"after_unknown": r.change.after_unknown,
+			"after_unknown": _get_change_after_unknown(r),
 			"mode": r.mode,
 			"type": r.type,
 		}
@@ -29,7 +34,7 @@ _resource(_input) := output if {
 		body := {
 			"address": r.address,
 			"values": r.change.after,
-			"after_unknown": r.change.after_unknown,
+			"after_unknown": _get_change_after_unknown(r),
 			"mode": r.mode,
 			"type": r.type,
 		}
