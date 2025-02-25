@@ -6,6 +6,10 @@ valid_azurerm_container_registry_admin_account_disabled(resource) if {
     resource.values.admin_enabled == false
 }
 
+valid_azurerm_container_registry_admin_account_disabled(resource) if {
+    not resource.values.admin_enabled == resource.values.admin_enabled
+}
+
 deny_CKV_AZURE_137 contains reason if {
     resource := data.utils.resource(input, "azurerm_container_registry")[_]
     not valid_azurerm_container_registry_admin_account_disabled(resource)

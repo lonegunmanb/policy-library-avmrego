@@ -1,0 +1,60 @@
+{
+  "mock": {
+    "disabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_container_registry.acr",
+          "mode": "managed",
+          "type": "azurerm_container_registry",
+          "name": "acr",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "admin_enabled": false
+            }
+          }
+        }
+      ]
+    },
+    "omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_container_registry.acr",
+          "mode": "managed",
+          "type": "azurerm_container_registry",
+          "name": "acr",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "invalid_enabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_container_registry.acr",
+          "mode": "managed",
+          "type": "azurerm_container_registry",
+          "name": "acr",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "admin_enabled": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

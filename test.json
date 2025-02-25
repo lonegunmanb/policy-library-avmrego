@@ -1,0 +1,23 @@
+{
+  "resource_changes": [
+    {
+      "address": "azapi_resource.res",
+      "mode": "managed",
+      "type": "azapi_resource",
+      "name": "res",
+      "provider_name": "registry.terraform.io/azure/azapi",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "body": {
+            "properties": {
+            }
+          },
+          "type": "Microsoft.ContainerRegistry/registries@2024-11-01-preview"
+        }
+      }
+    }
+  ]
+}
