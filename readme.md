@@ -7,7 +7,7 @@ This repository contains some [Rego](https://www.openpolicyagent.org/) policy fi
 To use these policies, you can use the [Conftest](https://www.conftest.dev/) tool. You can use the following command to run the policies against your Terraform plan:
 
 ```bash
-conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy <path-to-tfplan>
+conftest test --all-namespaces --update git::https://github.com/Azure/policy-library-avm.git//policy <path-to-tfplan>
 ```
 
 To generate a Terraform plan file:
@@ -20,7 +20,7 @@ Or you can use this library against the brown field infrastructure:
 
 ```bash
 terraform show -json > state.json
-conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy state.json
+conftest test --all-namespaces --update git::https://github.com/Azure/policy-library-avm.git//policy state.json
 ```
 
 ## Supported Policies
@@ -79,7 +79,7 @@ conftest test --all-namespaces --update git::https://github.com/lonegunmanb/poli
 To apply a subset of policies, you can specify the policy folders you want to apply, e.g.:
 
 ```Bash
-conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy/Azure-Proactive-Resiliency-Library-v2 <path-to-tfplan>
+conftest test --all-namespaces --update git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 <path-to-tfplan>
 ```
 
 This will only apply the policies under `Azure-Proactive-Resiliency-Library-v2`.
@@ -99,7 +99,7 @@ exception contains rules if {
 Save it to `exception.rego`, then you can apply the exception file with the policies:
 
 ```Bash
-conftest test --all-namespaces --update git::https://github.com/lonegunmanb/policy-library-avmrego.git//policy/Azure-Proactive-Resiliency-Library-v2 -p policy -p exception.rego <path-to-tfplan>
+conftest test --all-namespaces --update git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 -p policy -p exception.rego <path-to-tfplan>
 ```
 
 ## Contribution
