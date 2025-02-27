@@ -1,3 +1,0 @@
-[submodule "submodule/aws-infra-policy-as-code-with-terraform"]
-	path = submodule/aws-infra-policy-as-code-with-terraform
-	url = https://github.com/aws-samples/aws-infra-policy-as-code-with-terraform.git
